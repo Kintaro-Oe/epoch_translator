@@ -1,4 +1,17 @@
-document.body.style.border = "5px solid red";
+document.body.style.border = "5px solid blue";
+
+// window.onload = function() {
+//   search("vpc-0344e927c56868e6b");
+// }
+
+
+setInterval(
+  () => {
+    if (document.hasFocus()) {
+      search("vpc-0344e927c56868e6b")
+    }
+  }, 200
+);
 
 function search(vpcId){
   var aTags = document.getElementsByTagName("a");
@@ -11,5 +24,5 @@ function search(vpcId){
     }
   }
 
-  return found.map(aTag => aTag.title = "It works!");
+  return found.map(aTag => aTag.title = "It works!\nOr does it?");
 }
