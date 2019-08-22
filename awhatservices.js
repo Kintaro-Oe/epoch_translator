@@ -1,11 +1,14 @@
-data = [{vpcId: "vpc-0344e927c56868e6b", tooltip: "It works!\nOr does it?"}]
+data = [
+  {vpcId: "vpc-0344e927c56868e6b", tooltip: "It works!\nOr does it?"},
+  {vpcId: "vpc-90e6e5f6", tooltip: "Wooo! The other one."}
+]
 
-document.body.style.border = "5px solid blue";
+document.body.style.border = "5px solid green";
 
 setInterval(
   () => {
     if (document.hasFocus()) {
-      addTooltip(search(data[0].vpcId), data[0].tooltip)
+      data.forEach(({vpcId, tooltip}) => addTooltip(search(vpcId), tooltip))
     }
   }, 200
 );
