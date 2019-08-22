@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "awhatservices",
+  "version": "1.0",
+
+  "description": "it displays ... when a ... is hovered over",
+
+  "content_scripts": [
+    {
+    "matches": ["*://*.aws.amazon.com/*"],
+    "js": ["awhatservices.js"]
+    }
+  ]
+
+}
