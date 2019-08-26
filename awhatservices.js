@@ -1,32 +1,38 @@
-data = [
-  {vpcId: "vpc-0344e927c56868e6b", tooltip: "It works!\nOr does it?"},
-  {vpcId: "vpc-90e6e5f6", tooltip: "Wooo! The other one."}
-]
+browser = chrome;
+
+url = browser.runtime.getURL("vpcData.json");
+
+fetch(url)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    addTooltipsIfFocused(data);
+  });
 
 document.body.style.border = "5px solid green";
 
-setInterval(
-  () => {
+function addTooltipsIfFocused(data) {
+  setInterval(() => {
     if (document.hasFocus()) {
-      data.forEach(({vpcId, tooltip}) => addTooltip(search(vpcId), tooltip))
+      data.forEach(({ vpcId, tooltip }) => addTooltip(search(vpcId), tooltip));
     }
-  }, 200
-);
+  }, 200);
+}
 
-function search(vpcId){
-  var aTags = document.getElementsByTagName("a");
+function search(vpcId) {
+  var aTags = Array.from(document.getElementsByTagName("a"));
   var searchText = vpcId;
   var foundList = [];
 
-  for (var i = 0; i < aTags.length; i++) {
-    if (aTags[i].textContent.includes(searchText)) {
-      foundList.push(aTags[i]);
+  aTags.forEach(aTag => {
+    if (aTag.textContent.includes(searchText)) {
+      foundList.push(aTag);
     }
-  }
-
+  });
   return foundList;
 }
 
 function addTooltip(foundList, tooltip) {
-  foundList.forEach(aTag => aTag.title = tooltip);
+  foundList.forEach(aTag => (aTag.title = tooltip));
 }

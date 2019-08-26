@@ -10,6 +10,7 @@
     "matches": ["*://*.aws.amazon.com/*"],
     "js": ["awhatservices.js"]
     }
-  ]
+  ],
 
+  "web_accessible_resources": ["vpcData.json"]
 }
