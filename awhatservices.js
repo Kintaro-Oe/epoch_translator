@@ -6,9 +6,7 @@ fetch(url)
   .then(function(response) {
     return response.json();
   })
-  .then(function(data) {
-    addTooltipsIfFocused(data);
-  });
+  .then(addTooltipsIfFocused);
 
 document.body.style.border = "5px solid green";
 
