@@ -1,7 +1,11 @@
 browser = chrome;
 
-function epochTranslator() {
-  return new Date()
+function epochTranslator(inputValue) {
+  if (isNaN(inputValue)) {
+    return 'please select a numerical value'
+  } else {
+    return new Date(inputValue)
+  }
 };
 
 // browser.contextMenus.create({
