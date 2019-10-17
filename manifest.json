@@ -11,7 +11,7 @@
 
   "content_scripts": [
     {
-    "js": ["epoch_translator.js"]
+    "js": ["src/epoch_translator.js"]
     }
   ],
 }
