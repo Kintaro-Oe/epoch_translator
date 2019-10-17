@@ -1,16 +1,17 @@
 {
   "manifest_version": 2,
-  "name": "awhatservices",
+  "name": "epoch_translator",
   "version": "1.0",
 
-  "description": "it displays ... when a ... is hovered over",
+  "description": "it displays an understandable date when a epoch is hovered over",
+
+  "permissions": [
+    "contextMenus"
+  ],
 
   "content_scripts": [
     {
-    "matches": ["*://*.aws.amazon.com/*"],
-    "js": ["awhatservices.js"]
+    "js": ["epoch_translator.js"]
     }
   ],
-
-  "web_accessible_resources": ["vpcData.json"]
 }
