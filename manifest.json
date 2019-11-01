@@ -1,17 +1,29 @@
 {
   "manifest_version": 2,
   "name": "epoch_translator",
-  "version": "1.0",
 
   "description": "it displays an understandable date when a epoch is hovered over",
+  "version": "1.1.1",
 
   "permissions": [
-    "contextMenus"
+    "contextMenus",
+    "tabs"
   ],
 
   "content_scripts": [
     {
-    "js": ["src/epoch_translator.js"]
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
     }
   ],
+
+  "background": {
+    "scripts": ["src/background.js"],
+    "persistent": false
+  },
+
+  "icons": {
+    "128": "icon512.png"
+  }
+
 }

@@ -5,9 +5,13 @@ describe('epochTranslator', function() {
     it('returns a date object', function() {
       translated = epochTranslator(1571320791);
       expect(translated).toBeInstanceOf(Date);
-      console.log(translated)
+    });
 
-      // expect(translated).toEqual(...);
+    it('returns the correct date in GMT', function() {
+      translated = epochTranslator(1572524119);
+      expect(translated.toUTCString()).toEqual(
+        'Thu, 31 Oct 2019 12:15:19 GMT'
+      );
     });
   });
 
